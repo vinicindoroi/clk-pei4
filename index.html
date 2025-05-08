@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,7 +15,7 @@
 
             // FACEBOOK
             const utmCampaign = urlParams.get('utm_campaign');
-            const isFacebook = utmCampaign && /CBO|ABO|PEI4/.test(utmCampaign);
+            const isFacebook = utmCampaign && /CBO|ABO/.test(utmCampaign);
 
             // TIKTOK
             const utmSource = urlParams.get('utm_source');
@@ -51,12 +52,12 @@
         })();
     </script>
     <script>
-        window.pixelId = "67e382c47c6c993bb57565a3";
-        var a = document.createElement("script");
-        a.setAttribute("async", "");
-        a.setAttribute("defer", "");
-        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-        document.head.appendChild(a);
-    </script>
+  window.pixelId = "67e382c47c6c993bb57565a3";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
 </body>
 </html>
